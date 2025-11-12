@@ -81,8 +81,8 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::redirects('login', function () {
             $user = Auth::user();
 
-            // Admin & Super Admin redirect ke Filament
-            if ($user->hasRole(['admin', 'super_admin'])) {
+            // Admin redirect ke Filament
+            if ($user->hasRole('admin')) {
                 return '/admin';
             }
 
